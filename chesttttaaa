@@ -1,0 +1,129 @@
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local Name = Instance.new("TextBox")
+local TextBox = Instance.new("TextBox")
+local Earned = Instance.new("TextBox")
+local YourBeli = Instance.new("TextBox")
+local TextBox_2 = Instance.new("TextBox")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.350218326, 0, 0.230620161, 0)
+Frame.Size = UDim2.new(0, 547, 0, 307)
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(-0.000169827254, 0, -0.00173224532, 0)
+ImageLabel.Size = UDim2.new(0, 547, 0, 307)
+ImageLabel.Image = "rbxassetid://16282578335"
+
+Name.Name = "Name"
+Name.Parent = Frame
+Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name.BackgroundTransparency = 1.000
+Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name.BorderSizePixel = 0
+Name.Position = UDim2.new(0.0457038395, 0, 0, 0)
+Name.Size = UDim2.new(0, 226, 0, 57)
+Name.Font = Enum.Font.SciFi
+Name.LineHeight = 3.000
+Name.PlaceholderColor3 = Color3.fromRGB(151, 52, 178)
+Name.Text = "NAMLESS HUB"
+Name.TextColor3 = Color3.fromRGB(0, 0, 0)
+Name.TextSize = 14.000
+Name.TextWrapped = true
+
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.BackgroundTransparency = 1.000
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0, 0, 0, 48)
+TextBox.Size = UDim2.new(0, 192, 0, 52)
+TextBox.Font = Enum.Font.Unknown
+TextBox.Text = "Time :"
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextSize = 14.000
+
+function UpdateTime()
+    local GameTime = math.floor(workspace.DistributedGameTime+0.5)
+    local Hour = math.floor(GameTime/(60^2))%24
+    local Minute = math.floor(GameTime/(60^1))%60
+    local Second = math.floor(GameTime/(60^0))%60
+    Converted["_Time"].Text = "Hours : "..Hour.." Minute : "..Minute.." Second : "..Second
+    end
+    spawn(function()
+    while task.wait() do
+    pcall(function()
+    UpdateTime()
+    end)
+    end
+    end)
+
+Earned.Name = "Earned :"
+Earned.Parent = Frame
+Earned.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Earned.BackgroundTransparency = 1.000
+Earned.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Earned.BorderSizePixel = 0
+Earned.Position = UDim2.new(0, 0, 0, 92)
+Earned.Size = UDim2.new(0, 200, 0, 122)
+Earned.Font = Enum.Font.Unknown
+Earned.Text = "Earned :"
+Earned.TextColor3 = Color3.fromRGB(0, 0, 0)
+Earned.TextSize = 14.000
+
+YourBeli.Name = "Your Beli"
+YourBeli.Parent = Frame
+YourBeli.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+YourBeli.BackgroundTransparency = 1.100
+YourBeli.BorderColor3 = Color3.fromRGB(0, 0, 0)
+YourBeli.BorderSizePixel = 0
+YourBeli.Position = UDim2.new(0, 0, 0, 175)
+YourBeli.Size = UDim2.new(0, 197, 0, 117)
+YourBeli.Font = Enum.Font.Unknown
+YourBeli.Text = "Your Beli : "
+YourBeli.TextColor3 = Color3.fromRGB(0, 0, 0)
+YourBeli.TextSize = 14.000
+
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            local count10 = 0
+            local count = 0
+            for i,v in pairs(game.workspace:GetChildren()) do
+                if string.find(v.Name,"Chest") and v:IsA("Part") then
+                    count10 = count10 + 1
+                end
+            end
+            Converted["_TextLabel1"].Text = "Your Beli :".." "..game:GetService("Players").LocalPlayer.Data.Beli.Value.." | ".." Chest in server :".." "..count10
+        end)
+    end
+end)
+
+
+TextBox_2.Parent = Frame
+TextBox_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_2.BackgroundTransparency = 1.000
+TextBox_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox_2.BorderSizePixel = 0
+TextBox_2.Position = UDim2.new(0, -1, 0, 287)
+TextBox_2.Size = UDim2.new(0, 147, 0, 19)
+TextBox_2.Font = Enum.Font.SourceSansBold
+TextBox_2.Text = "By : tranvanphuong"
+TextBox_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox_2.TextSize = 14.000
+
