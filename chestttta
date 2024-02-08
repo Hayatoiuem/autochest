@@ -1,23 +1,4 @@
--------//[Function Script]\\------------
 
-
----------//[Ui Script Create By LMNGAMING]\\----------
-
-
--- Properties:
-
-:
-
-
-spawn(function()
-	while task.wait() do
-	if _G.SetupTeam then
-			local ohString1 = "SetTeam"
-			local ohString2 = "Pirates"
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(ohString1, ohString2)
-    end
-	end
-	end)
     
     function thisCode()
         repeat task.wait() until game:IsLoaded()
