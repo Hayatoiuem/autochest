@@ -1,22 +1,5 @@
 -------//[Function Script]\\------------
 
-_G.useconfig = true
-PosY = 30
-if _G.useconfig then
-    if getgenv().config["Start Farm Chest"]["Enabled"] then
-        AllowRunService = true
-        _G.SetupTeam = true
-    end
-	if getgenv().config["Screen"]["White Screen"]["Enabled"] then
-		game:GetService("RunService"):Set3dRenderingEnabled(false)
-	end
-	if getgenv().config["Screen"]["Boots FPS"]["Enabled"] then
-        print("Ko có đou")
-	end
-	if getgenv().config["Chest Misc"]["Stop When Have God's Chaile or Dark Key"]["Enabled"] then
-		_G.StopChest = true
-	end
-end
 
 ---------//[Ui Script Create By LMNGAMING]\\----------
 
